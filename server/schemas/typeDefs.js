@@ -3,7 +3,6 @@ const typeDefs = `
     _id: ID
     username: String!
     email: String!
-    bookCount: 
     savedBooks: [Book]!
   }
 
@@ -25,7 +24,7 @@ const typeDefs = `
     me: User
   }
 
-  input bookInput{
+  input BookInput{
     bookId: String!
     authors: [String]
     description: String!
