@@ -39,7 +39,8 @@ const resolvers = {
         const user = await User.findOneAndUpdate(
           { _id: context.user._id },
           //Use spread to capture all fields of the object
-          { $addToSet: { savedBooks: {...book} }}
+          { $addToSet: { savedBooks: {...book} }},
+          { new: true }
         );
           //return user as specified in typedefs
         return user;
@@ -51,7 +52,8 @@ const resolvers = {
       if (context.user) {
         const user = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedBooks: {bookId} } }
+          { $pull: { savedBooks: {bookId} } },
+          { new: true }
         );
           //return user as specified in typedefs
         return user;
